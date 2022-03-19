@@ -1,0 +1,28 @@
+name: "Terraform"
+runs:
+  using: "composite"
+  steps:
+
+    - name: Start localstack
+      run: docker run -d -p 4566:4566 -p 4571:4571 localstack/localstack
+
+    - name: Initialize
+      run: terraform init
+
+    - name: Validate
+      run: terraform validate
+
+    - name: Plan Apply
+      run: terraform plan -out apply.tfplan
+
+    - name: Apply
+      run: terraform apply -auto-approve "apply.tfplan"
+
+    - name: Show
+      run: terraform show
+
+    - name: Plan Destroy
+      run: terraform plan -destroy -out destroy.tfplan
+
+    - name: Destroy
+      run: terraform apply -auto-approve "destroy.tfplan"
