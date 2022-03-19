@@ -1,4 +1,4 @@
-# terraform-action
+# terraform-localstack-action
 
 ```yaml
 name: Terraform LocalStack
