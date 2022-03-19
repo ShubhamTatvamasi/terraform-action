@@ -2,6 +2,7 @@ name: "Terraform LocalStack"
 description: "Terraform LocalStack"
 icon: "check"
 color: "purple"
+
 runs:
   using: "composite"
   steps:
@@ -10,25 +11,33 @@ runs:
       uses: actions/checkout@v3
 
     - name: Start LocalStack
+      shell: bash
       run: docker run -d -p 4566:4566 -p 4571:4571 localstack/localstack
 
     - name: Initialize
+      shell: bash
       run: terraform init
 
     - name: Validate
+      shell: bash
       run: terraform validate
 
     - name: Plan Apply
+      shell: bash
       run: terraform plan -out apply.tfplan
 
     - name: Apply
+      shell: bash
       run: terraform apply -auto-approve "apply.tfplan"
 
     - name: Show
+      shell: bash
       run: terraform show
 
     - name: Plan Destroy
+      shell: bash
       run: terraform plan -destroy -out destroy.tfplan
 
     - name: Destroy
+      shell: bash
       run: terraform apply -auto-approve "destroy.tfplan"
