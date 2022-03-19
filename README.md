@@ -1,5 +1,8 @@
 # Terraform LocalStack
 
+Place your **provider** block config inside `provider.tf` file that will be replaced by LocalStack provider.
+
+
 ```yaml
 name: Terraform LocalStack
 
