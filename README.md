@@ -14,5 +14,5 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Terraform LocalStack
-      uses: ShubhamTatvamasi/terraform-action@master
+      uses: ShubhamTatvamasi/terraform-localstack-action@master
 ```
