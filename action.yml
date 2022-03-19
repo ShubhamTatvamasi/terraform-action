@@ -7,6 +7,10 @@ runs:
   using: "composite"
   steps:
 
+    - name: Delete local provider.tf
+      shell: bash
+      run: rm provider.tf
+
     - name: Download LocalStack provider.tf
       shell: bash
       run: wget https://github.com/ShubhamTatvamasi/terraform-localstack-action/raw/master/provider.tf
