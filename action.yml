@@ -7,6 +7,10 @@ runs:
   using: "composite"
   steps:
 
+    - name: Download LocalStack provider.tf
+      shell: bash
+      run: wget https://github.com/ShubhamTatvamasi/terraform-localstack-action/raw/master/provider.tf
+
     - name: Start LocalStack
       shell: bash
       run: docker run -d -p 4566:4566 -p 4571:4571 localstack/localstack
