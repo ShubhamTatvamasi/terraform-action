@@ -3,7 +3,7 @@
 ```yaml
 name: Terraform LocalStack
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   terraform-localstack:
