@@ -1,9 +1,12 @@
-name: "Terraform"
+name: "Terraform LocalStack"
+description: "Terraform LocalStack"
+icon: "check"
+color: "purple"
 runs:
   using: "composite"
   steps:
 
-    - name: Start localstack
+    - name: Start LocalStack
       run: docker run -d -p 4566:4566 -p 4571:4571 localstack/localstack
 
     - name: Initialize
