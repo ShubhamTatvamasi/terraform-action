@@ -10,6 +10,8 @@ on: [push, pull_request]
 jobs:
   terraform-localstack:
     runs-on: ubuntu-latest
+    env:
+      TF_VAR_ec2_instance_count: 1
     steps:
 
     - name: Checkout
