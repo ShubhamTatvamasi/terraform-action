@@ -50,6 +50,11 @@ runs:
         terraform show
 
         echo ${LINE}
+        echo "${TPUT}Output"
+        echo ${LINE}
+        terraform output
+
+        echo ${LINE}
         echo "${TPUT}Plan Destroy"
         echo ${LINE}
         terraform plan -destroy -out destroy.tfplan
