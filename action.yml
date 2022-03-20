@@ -15,14 +15,14 @@ runs:
         LINE="${TPUT}=================================="
 
         echo ${LINE}
-        echo "${TPUT}Delete local provider.tf"
+        echo "${TPUT}Delete local providers.tf"
         echo ${LINE}
-        touch provider.tf && rm provider.tf
+        touch providers.tf && rm providers.tf
 
         echo ${LINE}
-        echo "${TPUT}Download LocalStack provider.tf"
+        echo "${TPUT}Download LocalStack providers.tf"
         echo ${LINE}
-        wget https://github.com/ShubhamTatvamasi/terraform-localstack-action/raw/master/provider.tf
+        wget https://github.com/ShubhamTatvamasi/terraform-localstack-action/raw/master/providers.tf
 
         echo ${LINE}
         echo "${TPUT}Start LocalStack"
