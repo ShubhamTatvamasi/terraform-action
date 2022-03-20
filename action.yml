@@ -9,35 +9,56 @@ runs:
 
     - shell: bash
       run: |
-        export TERM=xterm
-        export TPUT=$(tput setaf 6)
+        TERM=xterm
+        TPUT=$(tput setaf 6)
+        LINE="${TPUT}=================================="
 
+        echo ${LINE}
         echo "${TPUT}Delete local provider.tf"
+        echo ${LINE}
         touch provider.tf && rm provider.tf
 
+        echo ${LINE}
         echo "${TPUT}Download LocalStack provider.tf"
+        echo ${LINE}
         wget https://github.com/ShubhamTatvamasi/terraform-localstack-action/raw/master/provider.tf
 
+        echo ${LINE}
         echo "${TPUT}Start LocalStack"
+        echo ${LINE}
         docker run -d -p 4566:4566 -p 4571:4571 localstack/localstack
 
+        echo ${LINE}
         echo "${TPUT}Initialize Terraform"
+        echo ${LINE}
         terraform init
 
+        echo ${LINE}
         echo "${TPUT}Validate files"
+        echo ${LINE}
         terraform validate
 
+        echo ${LINE}
         echo "${TPUT}Plan Apply"
+        echo ${LINE}
         terraform plan -out apply.tfplan
 
+        echo ${LINE}
         echo "${TPUT}Apply"
+        echo ${LINE}
         terraform apply -auto-approve "apply.tfplan"
 
+        echo ${LINE}
         echo "${TPUT}Show"
+        echo ${LINE}
         terraform show
 
+        echo ${LINE}
         echo "${TPUT}Plan Destroy"
+        echo ${LINE}
         terraform plan -destroy -out destroy.tfplan
 
+        echo ${LINE}
         echo "${TPUT}Destroy"
+        echo ${LINE}
         terraform apply -auto-approve "destroy.tfplan"
