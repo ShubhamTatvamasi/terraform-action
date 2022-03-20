@@ -9,6 +9,8 @@ runs:
 
     - shell: bash
       run: |
+        TERM=dumb
+
         echo "$(tput setaf 6)Delete local provider.tf"
         touch provider.tf && rm provider.tf
 
@@ -27,7 +29,7 @@ runs:
         echo "$(tput setaf 6)Plan Apply"
         terraform plan -out apply.tfplan
 
-        ehco "$(tput setaf 6)Apply"
+        echo "$(tput setaf 6)Apply"
         terraform apply -auto-approve "apply.tfplan"
 
         echo "$(tput setaf 6)Show"
