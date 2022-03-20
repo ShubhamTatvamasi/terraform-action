@@ -9,7 +9,7 @@ runs:
 
     - shell: bash
       run: |
-        TERM=xterm
+        export TERM=xterm
         TPUT=$(tput setaf 6)
         LINE="${TPUT}=================================="
 
