@@ -8,8 +8,9 @@ runs:
   steps:
 
     - shell: bash
+      env:
+        TERM: xterm
       run: |
-        export TERM=xterm
         TPUT=$(tput setaf 6)
         LINE="${TPUT}=================================="
 
