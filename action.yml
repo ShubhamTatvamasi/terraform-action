@@ -7,42 +7,34 @@ runs:
   using: "composite"
   steps:
 
-    - name: Delete local provider.tf
-      shell: bash
-      run: rm provider.tf
+    - shell: bash
+      run: |
+        echo "$(tput setaf 6)Delete local provider.tf"
+        touch provider.tf && rm provider.tf
 
-    - name: Download LocalStack provider.tf
-      shell: bash
-      run: wget https://github.com/ShubhamTatvamasi/terraform-localstack-action/raw/master/provider.tf
+        echo "$(tput setaf 6)Download LocalStack provider.tf"
+        wget https://github.com/ShubhamTatvamasi/terraform-localstack-action/raw/master/provider.tf
 
-    - name: Start LocalStack
-      shell: bash
-      run: docker run -d -p 4566:4566 -p 4571:4571 localstack/localstack
+        echo "$(tput setaf 6)Start LocalStack"
+        docker run -d -p 4566:4566 -p 4571:4571 localstack/localstack
 
-    - name: Initialize
-      shell: bash
-      run: terraform init
+        echo "$(tput setaf 6)Initialize Terraform"
+        terraform init
 
-    - name: Validate
-      shell: bash
-      run: terraform validate
+        echo "$(tput setaf 6)Validate files"
+        terraform validate
 
-    - name: Plan Apply
-      shell: bash
-      run: terraform plan -out apply.tfplan
+        echo "$(tput setaf 6)Plan Apply"
+        terraform plan -out apply.tfplan
 
-    - name: Apply
-      shell: bash
-      run: terraform apply -auto-approve "apply.tfplan"
+        ehco "$(tput setaf 6)Apply"
+        terraform apply -auto-approve "apply.tfplan"
 
-    - name: Show
-      shell: bash
-      run: terraform show
+        echo "$(tput setaf 6)Show"
+        terraform show
 
-    - name: Plan Destroy
-      shell: bash
-      run: terraform plan -destroy -out destroy.tfplan
+        echo "$(tput setaf 6)Plan Destroy"
+        terraform plan -destroy -out destroy.tfplan
 
-    - name: Destroy
-      shell: bash
-      run: terraform apply -auto-approve "destroy.tfplan"
+        echo "$(tput setaf 6)Destroy"
+        terraform apply -auto-approve "destroy.tfplan"
