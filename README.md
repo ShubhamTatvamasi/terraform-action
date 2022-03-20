@@ -1,6 +1,7 @@
 # Terraform LocalStack
 
-We will use LocalStack `providers.tf` file.
+We will use LocalStack `providers.tf` file. \
+Add your terraform variables in environment as per your need.
 
 ```yaml
 name: Terraform LocalStack
