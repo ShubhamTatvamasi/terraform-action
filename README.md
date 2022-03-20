@@ -1,7 +1,6 @@
 # Terraform LocalStack
 
-Place your **providers** code block config inside `providers.tf` file, which will be replaced by LocalStack providers file.
-
+We will use LocalStack `providers.tf` file.
 
 ```yaml
 name: Terraform LocalStack
