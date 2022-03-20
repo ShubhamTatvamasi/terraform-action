@@ -15,11 +15,6 @@ runs:
         LINE="${TPUT}=================================="
 
         echo ${LINE}
-        echo "${TPUT}Delete local providers.tf"
-        echo ${LINE}
-        touch providers.tf && rm providers.tf
-
-        echo ${LINE}
         echo "${TPUT}Download LocalStack providers.tf"
         echo ${LINE}
         wget https://github.com/ShubhamTatvamasi/terraform-localstack-action/raw/master/providers.tf
