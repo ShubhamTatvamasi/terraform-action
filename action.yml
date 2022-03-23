@@ -30,7 +30,7 @@ runs:
         terraform init
 
         echo ${LINE}
-        echo "${TPUT}Validate files"
+        echo "${TPUT}Validate"
         echo ${LINE}
         terraform validate
 
