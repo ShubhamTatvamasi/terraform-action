@@ -45,6 +45,11 @@ runs:
         terraform apply -auto-approve "apply.tfplan"
 
         echo ${LINE}
+        echo "${TPUT}State List"
+        echo ${LINE}
+        terraform state list
+
+        echo ${LINE}
         echo "${TPUT}Show"
         echo ${LINE}
         terraform show
